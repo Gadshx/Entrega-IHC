@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário - Projeto Integrador I</title>
+    <style>
+        :root {
+            --roxo-deep: #4a148c;
+            --roxo-vibrante: #7b1fa2;
+            --roxo-suave: #f3e5f5;
+            --fundo-pagina: #f0f2f5; /* Cor clara, visível e moderna */
+            --branco: #ffffff;
+            --texto: #333333;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            padding: 40px 20px; 
+            max-width: 550px; 
+            margin: auto; 
+            background-color: var(--fundo-pagina); /* Fundo colorido suave */
+            color: var(--texto);
+        }
+
+        .header-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-ceub {
+            max-width: 160px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.1));
+        }
+
+        h1 { 
+            color: var(--roxo-deep); 
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        fieldset { 
+            border: none; 
+            padding: 25px; 
+            border-radius: 15px; 
+            background-color: var(--branco);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08); /* Sombra para dar profundidade */
+        }
+
+        legend { 
+            font-weight: bold; 
+            font-size: 1.2rem;
+            color: var(--roxo-vibrante);
+            background: var(--roxo-suave);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .campo {
+            margin-bottom: 18px;
+        }
+
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="text"], 
+        input[type="email"], 
+        input[type="password"], 
+        select, 
+        textarea {
+            width: 100%; 
+            padding: 12px; 
+            box-sizing: border-box; 
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Destaque roxo ao clicar no campo */
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--roxo-vibrante);
+            background-color: var(--roxo-suave);
+            outline: none;
+            box-shadow: 0 0 8px rgba(123, 31, 162, 0.2);
+        }
+
+        button { 
+            width: 100%;
+            padding: 14px; 
+            cursor: pointer; 
+            background-color: var(--roxo-vibrante); 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(123, 31, 162, 0.3);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--roxo-deep);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .btn-feedback {
+            background-color: #616161; /* Cor neutra para diferenciar do cadastro */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-feedback:hover {
+            background-color: #424242;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-container">
+        <img src="https://institucional.uniceub.br/hubfs/BrandCenter/img/logo-ceub-versao-condensada.png" alt="Logo CEUB" class="logo-ceub">
+        <h1>Formulário: O Impacto Econômico das Plataformas de Apostas (Bets)</h1>
+    </header>
+
+    <main>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Cadastro</legend>
+                
+                <div class="campo">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+                </div>
+
+                <div class="campo">
+                    <label for="email-cad">E-mail:</label>
+                    <input type="email" id="email-cad" name="email" required placeholder="exemplo@sempreceub.com">
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Crie uma Senha:</label>
+                    <input type="password" id="senha" name="senha" minlength="8" required>
+                </div>
+                
+                <button type="submit">Finalizar Cadastro</button>
+            </fieldset>
+        </form>
+
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Sua Experiência</legend>
+                
+                <div class="campo">
+                    <label for="satisfacao">Como avalia o projeto?</label>
+                    <select id="satisfacao" name="satisfacao" required>
+                        <option value="">Selecione uma opção...</option>
+                        <optgroup label="Feedback Positivo">
+                            <option value="excelente">Excelente - Muito satisfeito</option>
+                            <option value="bom">Bom - Atendeu às expectativas</option>
+                        </optgroup>
+                        <optgroup label="Feedback Negativo">
+                            <option value="regular">Regular - Pode melhorar muito</option>
+                            <option value="ruim">Ruim - Frustrante</option>
+                            <option value="pessimo">Péssimo - Experiência horrível</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="comentarios">O que deu errado? (Opcional):</label>
+                    <textarea id="comentarios" name="comentarios" rows="3" placeholder="Sua opinião sincera ajuda no Projeto Integrador..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-feedback">Enviar Feedback</button>
+            </fieldset>
+        </form>
+    </main>
+
+</body>
+</html>
