@@ -1,0 +1,80 @@
+// ==========================================
+// Item A: Classe que representa o Produto
+// ==========================================
+class Produto {
+    // Definição dos 5 atributos solicitados com suas respectivas tipagens
+    public nome: string;
+    public descricao: string;
+    public valorComercial: number;
+    public fabricante: string;
+    public emEstoque: boolean;
+
+    constructor(
+        nome: string, 
+        descricao: string, 
+        valorComercial: number, 
+        fabricante: string, 
+        emEstoque: boolean
+    ) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.valorComercial = valorComercial;
+        this.fabricante = fabricante;
+        this.emEstoque = emEstoque;
+    }
+}
+
+// ==========================================
+// Item B: Classe que gerencia a Venda
+// ==========================================
+class Venda {
+    // Array tipado para aceitar apenas objetos da classe Produto
+    public produtos: Produto[];
+
+    constructor(produtos: Produto[]) {
+        this.produtos = produtos;
+    }
+
+    // Método que percorre a lista de produtos e soma seus valores comerciais
+    public calcularTotal(): number {
+        let total = 0;
+        for (const produto of this.produtos) {
+            total += produto.valorComercial;
+        }
+        return total;
+    }
+}
+
+// ==========================================
+// Item C: Instanciação e Demonstração do Fluxo
+// ==========================================
+
+// 1. Criando pelo menos dois produtos distintos (baseado no exemplo do enunciado)
+const produto1 = new Produto(
+    "Cadeira Gamer Pro",
+    "Cadeira ergonômica com regulagem de altura e braços 4D",
+    1250.00,
+    "TechFurniture",
+    true
+);
+
+const produto2 = new Produto(
+    "Mesa Diretor em L",
+    "Mesa de escritório em MDF com calha para fiação",
+    850.50,
+    "OfficeDesign",
+    true
+);
+
+// 2. Inserindo os produtos criados em um array para a nova venda
+const listaDeCompras = [produto1, produto2];
+const novaVenda = new Venda(listaDeCompras);
+
+// 3. Executando a soma e exibindo o resultado
+const valorTotalVenda = novaVenda.calcularTotal();
+
+console.log("--- Resumo da Venda ---");
+console.log(`Produto 1: ${produto1.nome} - R$ ${produto1.valorComercial.toFixed(2)}`);
+console.log(`Produto 2: ${produto2.nome} - R$ ${produto2.valorComercial.toFixed(2)}`);
+console.log("-----------------------");
+console.log(`Valor Total da Venda: R$ ${valorTotalVenda.toFixed(2)}`);
